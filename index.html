@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>IT202 Big Project</title>
+        <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <style>
+            :root {
+                --mdc-theme-primary: #4999a6;
+            }
+            body{
+                margin:0px;
+                font-family: 'roboto';
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="mdc-top-app-bar ">
+            <div class="mdc-top-app-bar__row">
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                    <span class="mdc-top-app-bar__title">COVID19 Info + Graph</span>
+                </section>
+
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                    <button id="homeButton" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"  onclick="showSearchPage()" aria-label="Home">home</button>
+                    <button id="searchButton" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" onclick="showSearchPage()" aria-label="Search">search</button>
+                    <button id = "tableButton" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Table">table_chart</button>
+                    <button id="weatherButton" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" onclick="showWeatherPage()" aria-label="Weather">wb_sunny</button>
+                </section>
+            </div>
+        </header>
+
+        <main style="text-align: center" class="mdc-top-app-bar--fixed-adjust">
+
+            <div id="searchPage">
+                <h3 style="text-align: center">Welcome to the Big Project! Search - type in the box below: </h3>
+
+                <label class="mdc-text-field mdc-text-field--outlined">
+                    <input id="stateSearchBox" type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch"></span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                </label>
+
+
+                <div style="text-align: center; margin: 10px" id="addDiv">
+                    <button style="align-self: center" id="tabulate" class="mdc-button mdc-button--raised">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">Look up</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mapPage" style="display: none">
+                <h3 style="text-align: center">Local Map</h3>
+            </div>
+        </main>
+
+            <div id="weatherPage" style="display: none; text-align: center">
+                <h3 style="text-align: center">Current Weather</h3>
+                <button class="mdc-button mdc-button--raised">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Get Location</span>
+                </button>
+            </div>
+        </main>
+
+        <script>
+           const showSearchPage = () =>{
+               document.querySelector("#weatherPage").style.display = "none";
+                document.querySelector("#searchPage").style.display = "block";
+                document.querySelector("#tablePage").style.display = "none";
+                document.querySelector("#weatherPage").style.display = "none";
+            }
+
+           const showWeatherPage = () =>{
+                document.querySelector("#weatherPage").style.display = "block";
+                document.querySelector("#searchPage").style.display = "none";
+                document.querySelector("#tablePage").style.display = "none";
+           }
+        </script>
+
+    </body>
+</html>
